@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  image-rendering: pixelated;
 }
 
 body {
@@ -19,35 +20,48 @@ main {
 
   display: flex;
   flex-wrap: wrap;
-  width: 1500px;
-  height: 1300px;
+  width: 480px;
+  height: 416px;
 
   background-color: black;
 }
 
 .sprite {
-  width: 100px;
-  height: 100px;
+  width: 32px;
+  height: 32px;
 }
 
 .map-blowable-block {
-  background-image: url(assets/sprites/map-blowable-block.png);
+  background-image: url(assets/sprites/maps/usual.png);
+  background-position: 0px 0px;
 }
 
 .map-fixed-block {
-  background-image: url(assets/sprites/map-fixed-block.png);
+  background-image: url(assets/sprites/maps/usual.png);
+  background-position: -32px 0px;
 }
 
 .map-floor-tile {
-  background-image: url(assets/sprites/map-floor-tile.png);
+  background-image: url(assets/sprites/maps/usual.png);
+  background-position: -64px 0px;
 }
 
 .map-wall-block {
-  background-image: url(assets/sprites/map-wall-block.png);
+  background-image: url(assets/sprites/maps/usual.png);
+  background-position: -96px 0px;
 }
 
 #player {
   position: absolute;
+}
 
-  background-color: red;
+#player::after {
+  content: "";
+  position: absolute;
+  top: -32px;
+  left: -16px;
+  width: 64px;
+  height: 64px;
+  background-image: url(assets/sprites/characters/bomberman-white.png);
+  background-position: 0px 0px;
 }

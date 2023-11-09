@@ -35,12 +35,12 @@ map.forEach((row) => {
 });
 
 //Parameters
-let playableArea = { xMin: 100, xMax: 1300, yMin: 100, yMax: 1100 };
-let playerVelocity = 15;
+let playableArea = { xMin: 32, xMax: 416, yMin: 32, yMax: 352 };
+let playerVelocity = 4;
 let physicsTolerance = 10;
 
 const playerElement = document.getElementById("player");
-const playerPosition = { x: 100, y: 100 };
+const playerPosition = { x: 32, y: 32 };
 
 updtPlayerPosition();
 
@@ -59,6 +59,8 @@ const keyboardBtns = {
     key: "s",
   },
 };
+
+let intervalFrequency = 33;
 
 let leftMotionI;
 let rightMotionI;
@@ -112,7 +114,7 @@ function movePlayer(direction) {
 
             updtPlayerPosition();
           }
-        }, 40);
+        }, intervalFrequency);
       }
 
       break;
@@ -128,7 +130,7 @@ function movePlayer(direction) {
 
             updtPlayerPosition();
           }
-        }, 40);
+        }, intervalFrequency);
       }
 
       break;
@@ -144,7 +146,7 @@ function movePlayer(direction) {
 
             updtPlayerPosition();
           }
-        }, 40);
+        }, intervalFrequency);
       }
 
       break;
@@ -160,7 +162,7 @@ function movePlayer(direction) {
 
             updtPlayerPosition();
           }
-        }, 40);
+        }, intervalFrequency);
       }
   }
 }
@@ -170,3 +172,28 @@ function updtPlayerPosition() {
   playerElement.style.left = `${playerPosition.x}px`;
   playerElement.style.top = `${playerPosition.y}px`;
 }
+
+// const playerAnimations = {
+//   left: [],
+//   right: {
+//     x: [0, 130, 195, 260],
+//     y: 65,
+//   },
+//   up: {
+//     key: "w",
+//   },
+//   down: {
+//     key: "s",
+//   },
+// };
+
+// getComputedStyle(playerElement, ":after").backgroundPosition = `0px 100px`;
+
+// setInterval(() => {
+//   for (i = 0; i < playerAnimations.right.x.length; i++) {
+//     getComputedStyle(
+//       playerElement,
+//       ":after"
+//     ).backgroundPositionY = `${playerAnimations.right.x[i]}px`;
+//   }
+// }, 1000);
